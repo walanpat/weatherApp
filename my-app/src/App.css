@@ -1,5 +1,145 @@
-.weatherinfo{
- display: flex;
- justify-content: center;
- align-items: center;
+.wrapper{
+    background: skyblue;
+}
+.title-container__title{
+    background-color: rgb(7, 182, 252);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.title-container__subtitle{
+    background: rgb(7, 182, 252);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.boxform{
+    width: device-width;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+.displayBox{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    order: inherit;
+    margin-left:5px ;
+    margin-right:5px ;
+    background-color: rgb(218, 241, 250);
+    border-width: 1px;
+    border-radius: 10px;
+
+}
+.weather_location{
+    font-size: 10px;
+    font-weight: bold;
+}
+.weather_date{
+    font-size: 15px;
+    font-weight: bold;
+
+
+}
+.weather_temp{
+    
+}
+.weather_temphigh{
+
+}
+.weather_templow{
+
+}
+.weather_humidity{
+
+}
+.weather_description{
+
+}
+.column0{
+    order: 0;
+    border: 1px solid #000;    
+    border-width: 1px;
+    border-radius: 10px;
+    display: flex; 
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 18%;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left:5px ;
+    margin-right:5px ;
+}
+.column1{
+     order: 1; 
+     flex-basis: 18%;
+
+     border: 1px solid #000;    
+     border-width: 1px;
+     border-radius: 10px;
+     display: flex; 
+    
+
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     margin-top: 5px;
+     margin-bottom: 5px;
+     margin-left:5px ;
+     margin-right:5px ;;
+}
+.column2{
+    order: 2; 
+    flex-basis: 18%;
+
+    border: 1px solid #000;    
+    border-width: 1px;
+    border-radius: 10px;
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left:5px ;
+    margin-right:5px ;
+}.column3{
+    order: 3; 
+    flex-basis: 18%;
+
+    border: 1px solid #000;    
+    border-width: 1px;
+    border-radius: 10px;
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left:5px ;
+    margin-right:5px ;
+}
+.column4{
+     order: 4; 
+     flex-basis: 18%;
+
+     border: 1px solid #000;    
+     border-width: 1px;
+     border-radius: 10px;
+     display: flex; 
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     margin-top: 5px;
+     margin-bottom: 5px;
+     margin-left:5px ;
+     margin-right:5px ;
 }
