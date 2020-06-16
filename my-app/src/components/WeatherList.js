@@ -9,10 +9,12 @@ const WeatherList = (props) => {
 
   if (data && data.list.length) {
     // console.log(data.list);
-    todaysDate = moment(data.list[0].dt_txt.slice(0, 10), 'YYYY-MM-DD');
-    console.log('1 ' + todaysDate.toString());
-    console.log('2 ' + todaysDate.add(1, 'day'));
-    console.log('3 ' + todaysDate.toString());
+    //Moment data is being sent in as 'YYYY-MM-DD HH:mm:SS'
+    todaysDate = moment(data.list[0].dt_txt, 'YYYY-MM-DD HH:mm:SS');
+    console.log(todaysDate.format('dddd MMM Do YY'));
+    console.log(data.list[0].dt_txt.slice)
+    console.log(moment(data.list[0].dt_txt.slice(0, 10)).format('dddd MMM Do YY').toString())
+
 
     //so I need to wrap each thing of the date
     //in such a way that I can manipulate it into it's own container
@@ -24,11 +26,14 @@ const WeatherList = (props) => {
     return data.list.map((element, i) => {
       //if todays date
       // <div>
-      if (todaysDate._i === element.dt_txt.slice(0, 10)) {
+      // console.log(todaysDate.toString().slice(0,10))
+      // console.log(moment(element.dt_txt.slice(0, 10)).toString())
+      if (todaysDate.format('dddd MMM Do YY') === moment(element.dt_txt.slice(0, 10)).format('dddd MMM Do YY').toString()) {
+        console.log(todaysDate.toString())
         return (
           <div className='column0'>
             <Weather
-              date={todaysDate.toString()}
+              date={moment(element.dt_txt,'YYYY-MM-DD HH:mm:SS').format('dddd MMM Do hh:mm a').toString()}
               temperature={element.main.temp}
               temphigh={element.main.temp_max}
               templow={element.main.temp_min}
@@ -47,14 +52,12 @@ const WeatherList = (props) => {
       //</div>
       //
       //if 1 day after today
-      if (
-        todaysDate.clone().add(1, 'day').toString() ===
-        moment(element.dt_txt.slice(0, 10)).toString()
-      ) {
+      if (todaysDate.clone().add(1,'day').format('dddd MMM Do YY') === moment(element.dt_txt.slice(0, 10)).format('dddd MMM Do YY').toString()) {
+
         return (
           <div className='column1'>
             <Weather
-              date={todaysDate.clone().add(1, 'day').toString()}
+              date={moment(element.dt_txt,'YYYY-MM-DD HH:mm:SS').format('dddd MMM Do hh:mm a').toString()}
               temperature={element.main.temp}
               temphigh={element.main.temp_max}
               templow={element.main.temp_min}
@@ -69,14 +72,11 @@ const WeatherList = (props) => {
           </div>
         );
       } //if 2 days after today
-      if (
-        todaysDate.clone().add(2, 'day').toString() ===
-        moment(element.dt_txt.slice(0, 10)).toString()
-      ) {
+      if (todaysDate.clone().add(2,'day').format('dddd MMM Do YY') === moment(element.dt_txt.slice(0, 10)).format('dddd MMM Do YY').toString()) {
         return (
           <div className='column2'>
             <Weather
-              date={todaysDate.clone().add(2, 'day').toString()}
+              date={moment(element.dt_txt,'YYYY-MM-DD HH:mm:SS').format('dddd MMM Do hh:mm a').toString()}
               temperature={element.main.temp}
               temphigh={element.main.temp_max}
               templow={element.main.temp_min}
@@ -91,14 +91,12 @@ const WeatherList = (props) => {
           </div>
         );
       } //if 3 days after today
-      if (
-        todaysDate.clone().add(3, 'day').toString() ===
-        moment(element.dt_txt.slice(0, 10)).toString()
-      ) {
+      if (todaysDate.clone().add(3,'day').format('dddd MMM Do YY') === moment(element.dt_txt.slice(0, 10)).format('dddd MMM Do YY').toString()) {
+
         return (
           <div className='column3'>
             <Weather
-              date={todaysDate.clone().add(3, 'day').toString()}
+              date={moment(element.dt_txt,'YYYY-MM-DD HH:mm:SS').format('dddd MMM Do hh:mm a').toString()}
               temperature={element.main.temp}
               temphigh={element.main.temp_max}
               templow={element.main.temp_min}
@@ -113,14 +111,12 @@ const WeatherList = (props) => {
           </div>
         );
       } //if 4 days after today
-      if (
-        todaysDate.clone().add(4, 'day').toString() ===
-        moment(element.dt_txt.slice(0, 10)).toString()
-      ) {
+      if (todaysDate.clone().add(4,'day').format('dddd MMM Do YY') === moment(element.dt_txt.slice(0, 10)).format('dddd MMM Do YY').toString()) {
+
         return (
           <div className='column4'>
             <Weather
-              date={todaysDate.clone().add(4, 'day').toString()}
+              date={moment(element.dt_txt,'YYYY-MM-DD HH:mm:SS').format('dddd MMM Do hh:mm a').toString()}
               temperature={element.main.temp}
               temphigh={element.main.temp_max}
               templow={element.main.temp_min}

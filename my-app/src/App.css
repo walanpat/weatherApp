@@ -2,13 +2,13 @@
   background: skyblue;
 }
 .title-container__title {
-  background-color: rgb(7, 182, 252);
+    background:black;
+color: white;
   display: flex;
   align-items: center;
   padding: 20px;
 }
 .title-container__subtitle {
-  background: rgb(7, 182, 252);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,6 +75,7 @@
   border-radius: 10px;
   display: flex;
 
+  width: 250px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -91,6 +92,7 @@
   border-width: 1px;
   border-radius: 10px;
   display: flex;
+  width: 250px;
 
   flex-direction: row;
   justify-content: center;
@@ -103,6 +105,7 @@
 .column2 {
   order: 2;
   flex-basis: 18%;
+  width: 250px;
 
   border: 1px solid #000;
   border-width: 1px;
@@ -120,6 +123,7 @@
 .column3 {
   order: 3;
   flex-basis: 18%;
+  width: 250px;
 
   border: 1px solid #000;
   border-width: 1px;
@@ -137,6 +141,8 @@
 .column4 {
   order: 4;
   flex-basis: 18%;
+  width: 250px;
+
 
   border: 1px solid #000;
   border-width: 1px;
