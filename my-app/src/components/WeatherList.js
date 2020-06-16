@@ -1,7 +1,6 @@
 import React from 'react';
 import Weather from './Weather';
 import moment from 'moment';
-import { Camera } from 'react-feather';
 const WeatherList = (props) => {
   const { data } = props;
   let i = 0;
@@ -15,44 +14,6 @@ const WeatherList = (props) => {
     console.log('2 ' + todaysDate.add(1, 'day'));
     console.log('3 ' + todaysDate.toString());
 
-    //if(this.data.data.weather[0].main==="Rain")
-    //if(this.data.data.weather[0].main==="Rain")
-    //if(this.data.data.weather[0].main==="Clear")
-    //if(this.data.data.weather[0].main==="Clouds")
-    //-----
-    {
-      /* {if(element.weather[0].description.toString()==="light rain"){
-              return (<img src="./public/cloud-rain.svg"/>)
-            }} */
-    }
-
-    {
-      /* {if(element.weather[0].description.toString()==="moderate rain"){
-
-            }} */
-    }
-    {
-      /* {if(element.weather[0].description.toString()==="light rain"){
-
-            }} */
-    }
-
-    {
-      /* {if(element.weather[0].description.toString()==="overcast clouds"){
-
-            }} */
-    }
-    {
-      /* {if(element.weather[0].description.toString()==="broken clouds"){
-
-            }} */
-    }
-    {
-      /* {if(element.weather[0].description.toString()==="scattered clouds"){
-
-            }} */
-    }
-
     //so I need to wrap each thing of the date
     //in such a way that I can manipulate it into it's own container
     //So how do I want to do that?
@@ -61,8 +22,8 @@ const WeatherList = (props) => {
     //"beginning" div, so what does this mean?
     // This means that in order to successfully wrap the "column 1" we have to use the iterator or check the date, it may just be easier to use an iterator at ths point.
     return data.list.map((element, i) => {
-      //if todays date  
-     // <div>
+      //if todays date
+      // <div>
       if (todaysDate._i === element.dt_txt.slice(0, 10)) {
         return (
           <div className='column0'>
@@ -78,14 +39,15 @@ const WeatherList = (props) => {
               description={element.weather[0].description}
               error={element.error}
             />
+
             <br />
           </div>
         );
-      } 
-          //</div>
-//
+      }
+      //</div>
+      //
       //if 1 day after today
-       if (
+      if (
         todaysDate.clone().add(1, 'day').toString() ===
         moment(element.dt_txt.slice(0, 10)).toString()
       ) {
@@ -107,7 +69,7 @@ const WeatherList = (props) => {
           </div>
         );
       } //if 2 days after today
-       if (
+      if (
         todaysDate.clone().add(2, 'day').toString() ===
         moment(element.dt_txt.slice(0, 10)).toString()
       ) {
@@ -151,7 +113,7 @@ const WeatherList = (props) => {
           </div>
         );
       } //if 4 days after today
-       if (
+      if (
         todaysDate.clone().add(4, 'day').toString() ===
         moment(element.dt_txt.slice(0, 10)).toString()
       ) {

@@ -2,7 +2,6 @@ import React from 'react';
 import WeatherList from './components/WeatherList';
 import Titles from './components/Titles';
 import Form from './components/Form';
-import Weather from './components/Weather';
 
 const API_KEY = '29d02913330218981978b15e1a360c63';
 //Current issues

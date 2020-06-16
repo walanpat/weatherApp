@@ -1,4 +1,5 @@
 import React from 'react';
+import { Camera, CloudDrizzle, CloudRain, Sun, Cloud } from 'react-feather';
 
 const Weather = (props) => (
   <div className='weatherinfo'>
@@ -18,6 +19,47 @@ const Weather = (props) => (
         <span className='weather__value'> {props.date}</span>
       </p>
     )}
+    {props.description.toString() === 'light rain' && (
+      <div className='icon'>
+        <CloudDrizzle />
+      </div>
+    )}
+    {props.description.toString() === 'moderate rain' && (
+      <div className='icon'>
+        <CloudRain />
+      </div>
+    )}
+
+    {props.description.toString() === 'overcast clouds' && (
+      <div className='icon'>
+        <Cloud />
+      </div>
+    )}
+
+    {props.description.toString() === 'broken clouds' && (
+      <div className='icon'>
+        <Cloud />
+      </div>
+    )}
+
+    {props.description.toString() === 'scattered clouds' && (
+      <div className='icon'>
+        <Cloud />
+      </div>
+    )}
+
+    {props.description.toString() === 'few clouds' && (
+      <div className='icon'>
+        <Cloud />
+      </div>
+    )}
+
+    {props.description.toString() === 'clear sky' && (
+      <div className='icon'>
+        <Sun />
+      </div>
+    )}
+
     {props.temperature && (
       <p className='weather_temp'>
         {' '}
@@ -57,7 +99,7 @@ const Weather = (props) => (
         <span className='weather__value'> {props.description} </span>
       </p>
     )}
-	
+
     {props.error && <p className='weather_error'>{props.error}</p>}
   </div>
 );

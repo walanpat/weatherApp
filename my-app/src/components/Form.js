@@ -2,9 +2,9 @@ import React from "react";
 
 const Form = props => (
 	<form  className="boxform" onSubmit={props.getWeather}>
-		<input type="text" name="city" placeholder="City..."/>
-		<input type="text" name="country" placeholder="Country..."/>
-		<button>Get Weather</button>
+		<input className="inputBox"type="text" name="city" placeholder="City..."/>
+		<input className="inputBox" type="text" name="country" placeholder="Country..."/>
+		<button className="submitButton">Get Weather</button>
 	</form>
 );
 
