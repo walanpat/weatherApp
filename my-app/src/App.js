@@ -10,18 +10,21 @@ const API_KEY = '29d02913330218981978b15e1a360c63';
 //Need to rework all of this set state stuff (probably) in order for the inheritence model to not be used
 //Large amounts of refactoring will go into this
 class App extends React.Component {
-  state = {
-    numCount: 0,
-    temperature: undefined,
-    temphigh: undefined,
-    templow: undefined,
-    city: undefined,
-    country: undefined,
-    humidity: undefined,
-    description: undefined,
-    error: undefined,
-    dataArr: undefined,
-  };
+  constructor(props) {
+    super(props); this.state = {
+      numCount: 0,
+      temperature: undefined,
+      temphigh: undefined,
+      templow: undefined,
+      city: undefined,
+      country: undefined,
+      humidity: undefined,
+      description: undefined,
+      error: undefined,
+      dataArr: undefined,
+    };
+  }
+ 
   getWeather = async (e) => {
     e.preventDefault();
     const city = e.target.elements.city.value;
