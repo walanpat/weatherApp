@@ -1,147 +1,182 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable no-unused-vars */
+// eslint-disable react/destructuring-assignment
+// eslint-disable no-unused-vars
+// eslint linebreak-style: ["error", "windows"]
 import React, { useEffect, useState } from 'react';
 import {
-  Camera, CloudDrizzle, CloudRain, Sun, Cloud,
+  CloudDrizzle, CloudRain, Sun, Cloud,
 } from 'react-feather';
+import PropTypes from 'prop-types';
 
 const Weather = (props) => {
-  const [thing, setThing] = useState({ x: 3 });
-  const add = (x, y) => {
-    const newThing = thing;
-    newThing.x = x + y;
-    setThing(newThing);
-  };
-  useEffect(() => {
-    if (props.city === 'mexico city') {
-      setThing(7);
-    }
-  }, []);
-  return (
-    <div className="weatherinfo">
-      {props.city && props.country && (
-        <p className="weather_location">
-          {' '}
-          Location:
-          <span className="weather__value">
+
+  const [property, setProperty] = useState({
+    city: props.city,
+    country: props.country,
+    date: props.date,
+    temp: props.temperature,
+    description: props.description,
+    temphigh: props.temphigh,
+    templow: props.templow,
+    humidity: props.humidity,
+  });
+  if (props) {
+    // const add = (x, y) => {
+    //   const newThing = thing;
+    //   newThing.x = x + y;
+    //   setThing(newThing);
+    // };
+
+    // useEffect(() => {
+    // }, []);
+
+    return (
+      <div className="weatherinfo">
+        {property.city && property.country && (
+          <p className="weather_location">
             {' '}
-            {props.city}
-            ,
-            {props.country}
+            Location:
+            <span className="weather__value">
+              {' '}
+              {property.city}
+              ,
+              {property.country}
+              {' '}
+            </span>
+          </p>
+        )}
+        {property.date && (
+          <p className="weather_date">
             {' '}
-          </span>
-        </p>
-      )}
-      {props.date && (
-        <p className="weather_date">
-          {' '}
-          <span className="weather__value">
+            <span className="weather__value">
+              {' '}
+              {property.date}
+            </span>
+          </p>
+        )}
+        {property.description.toString() === 'light rain' && (
+          <div className="icon">
+            <CloudDrizzle />
+          </div>
+        )}
+        {property.description.toString() === 'moderate rain' && (
+          <div className="icon">
+            <CloudRain />
+          </div>
+        )}
+
+        {property.description.toString() === 'overcast clouds' && (
+          <div className="icon">
+            <Cloud />
+          </div>
+        )}
+
+        {property.description.toString() === 'broken clouds' && (
+          <div className="icon">
+            <Cloud />
+          </div>
+        )}
+
+        {property.description.toString() === 'scattered clouds' && (
+          <div className="icon">
+            <Cloud />
+          </div>
+        )}
+
+        {property.description.toString() === 'few clouds' && (
+          <div className="icon">
+            <Cloud />
+          </div>
+        )}
+
+        {property.description.toString() === 'clear sky' && (
+          <div className="icon">
+            <Sun />
+          </div>
+        )}
+
+        {property.temperature && (
+          <p className="weather_temp">
             {' '}
-            {props.date}
-          </span>
-        </p>
-      )}
-      {props.description.toString() === 'light rain' && (
-        <div className="icon">
-          <CloudDrizzle />
-        </div>
-      )}
-      {props.description.toString() === 'moderate rain' && (
-        <div className="icon">
-          <CloudRain />
-        </div>
-      )}
+            Temperature:
+            <span className="weather__value">
+              {' '}
+              {property.temperature}
+            </span>
+          </p>
+        )}
 
-      {props.description.toString() === 'overcast clouds' && (
-        <div className="icon">
-          <Cloud />
-        </div>
-      )}
-
-      {props.description.toString() === 'broken clouds' && (
-        <div className="icon">
-          <Cloud />
-        </div>
-      )}
-
-      {props.description.toString() === 'scattered clouds' && (
-        <div className="icon">
-          <Cloud />
-        </div>
-      )}
-
-      {props.description.toString() === 'few clouds' && (
-        <div className="icon">
-          <Cloud />
-        </div>
-      )}
-
-      {props.description.toString() === 'clear sky' && (
-        <div className="icon">
-          <Sun />
-        </div>
-      )}
-
-      {props.temperature && (
-        <p className="weather_temp">
-          {' '}
-          Temperature:
-          <span className="weather__value">
+        {property.temphigh && (
+          <p className="weather_temphigh">
             {' '}
-            {props.temperature}
-          </span>
-        </p>
-      )}
+            Temp High:
+            <span className="weather__value">
+              {' '}
+              {property.temphigh}
+            </span>
+          </p>
+        )}
 
-      {props.temphigh && (
-        <p className="weather_temphigh">
-          {' '}
-          Temp High:
-          <span className="weather__value">
+        {property.templow && (
+          <p className="weather_templow">
             {' '}
-            {props.temphigh}
-          </span>
-        </p>
-      )}
+            Temp Low:
+            <span className="weather__value">
+              {' '}
+              {property.templow}
+            </span>
+          </p>
+        )}
 
-      {props.templow && (
-        <p className="weather_templow">
-          {' '}
-          Temp Low:
-          <span className="weather__value">
+        {property.humidity && (
+          <p className="weather_humidity">
             {' '}
-            {props.templow}
-          </span>
-        </p>
-      )}
+            Humidity:
+            <span className="weather__value">
+              {' '}
+              {property.humidity}
+              {' '}
+            </span>
+          </p>
+        )}
 
-      {props.humidity && (
-        <p className="weather_humidity">
-          {' '}
-          Humidity:
-          <span className="weather__value">
+        {property.description && (
+          <p className="weather_description">
             {' '}
-            {props.humidity}
-            {' '}
-          </span>
-        </p>
-      )}
+            Conditions:
+            <span className="weather__value">
+              {' '}
+              {property.description}
+              {' '}
+            </span>
+          </p>
+        )}
 
-      {props.description && (
-        <p className="weather_description">
-          {' '}
-          Conditions:
-          <span className="weather__value">
-            {' '}
-            {props.description}
-            {' '}
-          </span>
-        </p>
-      )}
-
-      {props.error && <p className="weather_error">{props.error}</p>}
-    </div>
-  );
+        {property.error && <p className="weather_error">{property.error}</p>}
+      </div>
+    );
+  }
+  return '';
 };
 
 export default Weather;
+Weather.propTypes = {
+  city: PropTypes.string,
+  country: PropTypes.string,
+  date: PropTypes.string,
+  temp: PropTypes.string,
+  description: PropTypes.string,
+  temphigh: PropTypes.string,
+  templow: PropTypes.string,
+  humidity: PropTypes.string,
+};
+
+Weather.defaultProps = {
+  city: PropTypes.string,
+  country: PropTypes.string,
+  date: PropTypes.string,
+  temp: PropTypes.string,
+  description: PropTypes.string,
+  temphigh: PropTypes.string,
+  templow: PropTypes.string,
+  humidity: PropTypes.string,
+};
