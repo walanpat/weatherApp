@@ -4,24 +4,15 @@ import PropTypes from 'prop-types';
 import Weather from './Weather';
 
 const WeatherList = (props) => {
-  const [property, setProperty] = useState({
-    city: props.city,
-    country: props.country,
-    date: props.date,
-    temp: props.temperature,
-    description: props.description,
-    temphigh: props.temphigh,
-    templow: props.templow,
-    humidity: props.humidity,
-  });
+  const properties = props;
 
   const z = '';
   let todaysDate = '';
-  if (props.data !== undefined) {
-    console.log(props);
+  console.log(props);
+  if (props.data && props.data.list.length) {
     // console.log(data.list);
     // Moment data is being sent in as 'YYYY-MM-DD HH:mm:SS'
-    todaysDate = property.date;
+    todaysDate = moment(props.data.list[0].dt_txt.slice(0, 10), 'YYYY-MM-DD');
     // console.log(todaysDate.format('dddd MMM Do YY'));
     // console.log(property.list[0].dt_txt.slice);
     // console.log(moment(property.list[0].dt_txt.slice(0, 10)).format('dddd MMM Do YY').toString());
@@ -34,7 +25,7 @@ const WeatherList = (props) => {
     // "beginning" div, so what does this mean?
     // This means that in order to successfully wrap the "column 1" we have to use the
     // iterator or check the date, it may just be easier to use an iterator at ths point.
-    return props.list.map((element) => {
+    return props.data.list.map((element) => {
       if (todaysDate.format('dddd MMM Do YY') === moment(element.dt_txt.slice(0, 10)).format('dddd MMM Do YY').toString()) {
         return (
           <div className="column0">
@@ -44,8 +35,8 @@ const WeatherList = (props) => {
               temphigh={element.main.temp_max}
               templow={element.main.temp_min}
               humidity={element.main.humidity}
-              city={property.city.name}
-              country={property.city.country}
+              city={properties.city.name}
+              country={properties.city.country}
               description={element.weather[0].description}
               error={element.error}
             />
@@ -64,8 +55,8 @@ const WeatherList = (props) => {
               temphigh={element.main.temp_max}
               templow={element.main.temp_min}
               humidity={element.main.humidity}
-              city={property.city.name}
-              country={property.city.country}
+              city={properties.city.name}
+              country={properties.city.country}
               description={element.weather[0].description}
               error={element.error}
             />
@@ -82,8 +73,8 @@ const WeatherList = (props) => {
               temphigh={element.main.temp_max}
               templow={element.main.temp_min}
               humidity={element.main.humidity}
-              city={property.city.name}
-              country={property.city.country}
+              city={properties.city.name}
+              country={properties.city.country}
               description={element.weather[0].description}
               error={element.error}
             />
@@ -100,8 +91,8 @@ const WeatherList = (props) => {
               temphigh={element.main.temp_max}
               templow={element.main.temp_min}
               humidity={element.main.humidity}
-              city={property.city.name}
-              country={property.city.country}
+              city={properties.city.name}
+              country={properties.city.country}
               description={element.weather[0].description}
               error={element.error}
             />
@@ -118,8 +109,8 @@ const WeatherList = (props) => {
               temphigh={element.main.temp_max}
               templow={element.main.temp_min}
               humidity={element.main.humidity}
-              city={property.city.name}
-              country={property.city.country}
+              city={properties.city.name}
+              country={properties.city.country}
               description={element.weather[0].description}
               error={element.error}
             />
